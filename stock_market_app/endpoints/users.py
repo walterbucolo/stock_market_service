@@ -12,7 +12,13 @@ router = APIRouter(tags=["users"])
 @router.post("/users", response_model=schemas.UserCreateResponse)
 def create_users(user: schemas.UserCreate, db: Session = Depends(get_db)):
     try:
-        response = UserService(user.name, user.lastname, user.email, db).create_user_with_api_key()
+        response = UserService(
+            user.name,
+            user.lastname,
+            user.email,
+            user.password,
+            db
+        ).create_user_with_api_key()
     except IntegrityError:
         raise HTTPException(
             status_code=409,

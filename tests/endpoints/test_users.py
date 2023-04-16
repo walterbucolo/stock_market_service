@@ -19,7 +19,7 @@ def test_create_users_succesfully(create_user_with_api_key):
 
     response = client.post(
         "/api/users",
-        json={"name": "Walt", "lastname": "Buc", "email": "fake@fake.com"}
+        json={"name": "Walt", "lastname": "Buc", "email": "fake@fake.com", "password": "passw"}
     )
 
     assert response.status_code == 200
@@ -55,7 +55,7 @@ def test_create_users_fails_when_email_already_exists(create_user_with_api_key):
     # with pytest.raises(IntegrityError) as exc:
     response = client.post(
         "/api/users",
-        json={"name": "Walt", "lastname": "Buc", "email": email}
+        json={"name": "Walt", "lastname": "Buc", "email": email, "password": "passw"}
     )
 
     assert response.status_code == 409

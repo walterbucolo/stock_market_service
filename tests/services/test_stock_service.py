@@ -15,7 +15,7 @@ class TestStockMarketService:
         stock_market_service = StockMarketService(symbol="meta")
         expected_url = VANTAGE_DOMAIN.format(
             function='TIME_SERIES_DAILY_ADJUSTED',
-            symbol='mceta',
+            symbol='meta',
             api_key='fake_vantage_apikey'
         )
 

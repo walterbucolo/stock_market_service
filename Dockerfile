@@ -13,5 +13,5 @@ RUN pip install -r requirements.txt
 # Expose the port that the app is listening on
 EXPOSE 8000
 
-# Start the app
+# Start the app 
 CMD ["uvicorn", "stock_market_app.main:app", "--host", "0.0.0.0", "--port", "8000"]

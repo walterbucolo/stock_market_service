@@ -11,7 +11,12 @@ from stock_market_app.services.user_service import UserService
 class TestUserService:
     def test_create_user_successfully(self):
         db = MagicMock()
-        user_service = UserService(name="John", lastname="Lennon", email="lennonjohn@fake.com", db=db)
+        user_service = UserService(
+            name="John",
+            lastname="Lennon",
+            email="lennonjohn@fake.com",
+            password="passw",
+            db=db)
 
         db_user = user_service.create_user()
 
@@ -26,7 +31,12 @@ class TestUserService:
         db = MagicMock()
         db.commit.side_effect = IntegrityError()
 
-        user_service = UserService(name="John", lastname="Lennon", email="lennonjohn@fake.com", db=db)
+        user_service = UserService(
+            name="John",
+            lastname="Lennon",
+            email="lennonjohn@fake.com",
+            password="passw",
+            db=db)
 
         with pytest.raises(IntegrityError):
             user_service.create_user()
@@ -35,7 +45,12 @@ class TestUserService:
     @patch.object(AuthService, 'create_api_key')
     def test_create_user_with_api_key(self, mock_create_api_key, mock_create_user):
         db = MagicMock()
-        user_service = UserService(name="John", lastname="Lennon", email="lennonjohn@fake.com", db=db)
+        user_service = UserService(
+            name="John",
+            lastname="Lennon",
+            email="lennonjohn@fake.com",
+            password="passw",
+            db=db)
         mock_create_user.return_value = User(
             id=1,
             name="John",

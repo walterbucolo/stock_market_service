@@ -1,3 +1,4 @@
+from passlib.hash import bcrypt
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from stock_market_app.schemas import UserCreateResponse
@@ -6,19 +7,21 @@ from ..models import User
 
 
 class UserServiceBase:
-    def __init__(self, name: str, lastname: str, email: str) -> None:
+    def __init__(self, name: str, lastname: str, email: str, password: str) -> None:
         self.name = name
         self.lastname = lastname
+        self.password = password
         self.email = email
 
 
 class UserService(UserServiceBase):
-    def __init__(self, name: str, lastname: str, email: str, db: Session) -> None:
+    def __init__(self, name: str, lastname: str, email: str, password: str, db: Session) -> None:
         self.db = db
-        super().__init__(name, lastname, email)
+        super().__init__(name, lastname, email, password)
 
     def create_user(self):
-        db_user = User(name=self.name, lastname=self.lastname, email=self.email)
+        hashed_password = bcrypt.hash(self.password)
+        db_user = User(name=self.name, lastname=self.lastname, email=self.email, hashed_password=hashed_password)
         self.db.add(db_user)
         try:
             self.db.commit()

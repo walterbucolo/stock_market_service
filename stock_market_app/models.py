@@ -9,6 +9,7 @@ class User(Base):
     name = Column(String)
     lastname = Column(String)
     email = Column(String, unique=True, index=True)
+    hashed_password = Column(String)
     api_key = relationship("APIKey", uselist=False, back_populates="user")
 
 
