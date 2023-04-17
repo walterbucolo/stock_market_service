@@ -1,9 +1,12 @@
-# stock_market_service
+# Stock_market_service
 FastAPI app that authenticates a users and retrieve stock market information.
 
 ## API Documentation
 
 View the Swagger documentation for the API [here](http://ec2-18-191-191-179.us-east-2.compute.amazonaws.com/docs).
+> Note: A valid Api-key included in the headers is needed to retrieve stock information. 
+> See in the documentation the POST users endpoints for more information on how to create an Api-key
+
 
 ## How to run it locally
 1. Clone the repository.
@@ -21,3 +24,12 @@ View the Swagger documentation for the API [here](http://ec2-18-191-191-179.us-e
 4. Run ```docker build -t stock_market .``` to build the image.
 5. Run ```docker run -e API_KEY="<vantage-api-key>" -p 8000:8000 stock_market:latest``` to start the container
 6. Perform requests pointing to ´http://0.0.0.0:8000/´
+
+## How to access it in the cloud
+1. Perform request to the following domain http://ec2-18-191-191-179.us-east-2.compute.amazonaws.com/
+Example with curl: 
+´´´curl -X GET \
+     -H "Content-Type: application/json" \
+     -H "Api-key: <your-api-key>" \
+     http://ec2-18-191-191-179.us-east-2.compute.amazonaws.com/api/stocks/meta
+´´´
