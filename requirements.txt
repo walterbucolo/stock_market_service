@@ -37,3 +37,4 @@ wcwidth==0.2.6
 websockets==11.0.1
 bcrypt==4.0.1
 bcrypt==4.0.1
+httpx==0.24.0
