@@ -19,14 +19,11 @@ class StockMarketService:
             raise HTTPException(status_code=404, detail="Not Found")
 
         time_series_daily = result.json().get('Time Series (Daily)')
-        
-        try:
-            last_two_days = list(time_series_daily)[:2]
-            last_day_close = float(time_series_daily[last_two_days[0]]['4. close'])
-            before_last_day_close = float(time_series_daily[last_two_days[1]]['4. close'])
-            variation = last_day_close - before_last_day_close
-        except Exception:
-            raise
+        last_two_days = list(time_series_daily)[:2]
+        last_day_close = float(time_series_daily[last_two_days[0]]['4. close'])
+        before_last_day_close = float(time_series_daily[last_two_days[1]]['4. close'])
+        variation = last_day_close - before_last_day_close
+
         return Stock(
             symbol=self.symbol,
             open_price=time_series_daily[last_two_days[0]]['1. open'],
