@@ -28,8 +28,16 @@ View the Swagger documentation for the API [here](http://ec2-18-191-191-179.us-e
 ## How to access it in the cloud
 1. Perform request to the following domain http://ec2-18-191-191-179.us-east-2.compute.amazonaws.com/
 Example with curl: 
-´´´curl -X GET \
+```
+curl -X GET \
      -H "Content-Type: application/json" \
      -H "Api-key: <your-api-key>" \
      http://ec2-18-191-191-179.us-east-2.compute.amazonaws.com/api/stocks/meta
-´´´
+```
+
+## Errata
+There are somethins that are missing. I will try to add them in a PR
+
+1. Integrations tests. 
+2. API Throttling.
+3. CI/CD for triggering automated tests per every PR and deploying to AWS
