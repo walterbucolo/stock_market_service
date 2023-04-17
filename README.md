@@ -1,5 +1,5 @@
 # Stock_market_service
-FastAPI app that authenticates a users and retrieve stock market information.
+FastAPI app that generates an Apikey for a user and retrieves stock market information.
 
 ## API Documentation
 
