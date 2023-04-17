@@ -1,4 +1,5 @@
 *.log
+*.pb
 *.pot
 *.pyc
 *.db
