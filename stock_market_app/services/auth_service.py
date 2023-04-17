@@ -43,7 +43,10 @@ class AuthService:
         key_hash = AuthService.hash_api_key(key)
         api_key = AuthService.get_api_key(db, key_hash)
         if not api_key:
-            raise HTTPException(status_code=401, detail="Unauthorized")
+            raise HTTPException(
+                status_code=401,
+                detail="Unauthorized. A valid Api-key is needed."
+            )
 
     def get_api_key(db: Session, key_hash):
         return db.query(APIKey).filter(APIKey.key == key_hash).first()
