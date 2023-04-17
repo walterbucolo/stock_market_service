@@ -11,4 +11,5 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # Start the app 
-CMD ["uvicorn", "stock_market_app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# CMD ["uvicorn", "stock_market_app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python3", "-m", "uvicorn", "stock_market_app.main:app", "--host", "0.0.0.0", "--port", "8000"]

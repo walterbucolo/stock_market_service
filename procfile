@@ -1,0 +1,4 @@
+# Procfile
+
+web: gunicorn stock_market_app.main:app --workers=4 --worker-class=uvicorn.workers.UvicornWorker
+

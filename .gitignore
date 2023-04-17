@@ -8,3 +8,7 @@ venv
 .pytest_cache
 .flake8
 .DS_Store
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
