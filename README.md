@@ -3,7 +3,7 @@ FastAPI app that authenticates a users and retrieve stock market information.
 
 ## API Documentation
 
-View the Swagger documentation for our API [here](TODO agregar link).
+View the Swagger documentation for the API [here](http://ec2-18-191-191-179.us-east-2.compute.amazonaws.com/docs).
 
 ## How to run it locally
 1. Clone the repository.
@@ -12,6 +12,7 @@ View the Swagger documentation for our API [here](TODO agregar link).
 3. Run export ```VANTAGE_APIKEY=_your-vantange-apikey_``` to export vantage apikey.
 4. Run ```uvicorn stock_market_app.main:app --reload``` to start the server.
 5. Perform requests pointing to ```http://127.0.0.1:8000```
+
 
 ## How to run it using docker
 1. Clone the repository.
